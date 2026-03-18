@@ -3,122 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INFOUNDER | Coming Soon</title>
+    <title>INFOUNDER</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            background-color: #0f172a;
-            color: #ffffff;
-            font-family: 'Inter', -apple-system, system-ui, sans-serif;
-            display: flex;
-            flex-direction: column;
+        :root {
+            --brand-navy: #1b2e5a; 
+            --brand-gold: #d7c690; 
+            --white: #ffffff;
         }
 
-        .main-content {
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--brand-navy);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .side-strip {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 60px; 
+            z-index: 1;
+            background-image: url('../public/part.png'); 
+            background-repeat: repeat-y;
+            background-size: contain;
+            animation: slidePattern 20s linear infinite;
+        }
+
+        .strip-left { left: 0; }
+        .strip-right { 
+            right: 0; 
+            animation-direction: reverse; 
+        }
+
+        @keyframes slidePattern {
+            from { background-position: 0 0; }
+            to { background-position: 0 500px; }
+        }
+
+        .content-container {
+            position: relative;
+            z-index: 10;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            padding: 0 100px; 
+        }
+
+        main {
             flex: 1;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
         }
 
-        .container {
-            padding: 20px;
-        }
-
-        .logo {
-            width: 70px;
+        .logo-main { 
+            width: 80px;
+            height: auto; 
             margin-bottom: 30px;
         }
 
-        h1 {
-            font-size: clamp(3rem, 10vw, 5rem);
-            margin: 0;
-            font-weight: 800;
-            letter-spacing: -1px;
-            background: linear-gradient(135deg, #ffffff 0%, #d7c690 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .hero-headline {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
         }
 
-        p {
-            margin-top: 15px;
-            font-size: 1.1rem;
+        .hero-headline span { color: var(--brand-gold); }
+
+        .sub-statement {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .btn-cta {
+            background-color: var(--brand-gold);
+            color: var(--brand-navy);
+            padding: 18px 40px;
+            border-radius: 4px;
+            font-weight: 800;
+            text-decoration: none;
+            text-transform: uppercase;
             letter-spacing: 1px;
-            opacity: 0.6;
-            font-weight: 300;
+            transition: 0.3s;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--white);
+            transform: translateY(-2px);
         }
 
         footer {
-            padding: 30px 20px;
+            padding: 40px 0;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            border-top: 1px solid rgba(197, 168, 118, 0.1);
-            background: rgba(15, 23, 42, 0.8);
-        }
-
-        .contact-link {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 0.9rem;
-            display: flex;
+            flex-direction: column;
             align-items: center;
             gap: 10px;
-            transition: color 0.3s ease;
-            opacity: 0.8;
         }
 
-        .contact-link i {
-            color: #d7c690;
-            font-size: 1.1rem;
-        }
-
-        .contact-link:hover {
-            color: #d7c690;
-            opacity: 1;
-        }
+        .label { font-size: 0.7rem; letter-spacing: 3px; color: var(--brand-gold); opacity: 0.6; }
+        .partner-img { height: 120px; width: auto; }
 
         @media (max-width: 768px) {
-            footer {
-                flex-direction: column;
-                gap: 15px;
-                padding: 20px;
-            }
+            .side-strip { width: 40px; }
+            .content-container { padding: 0 50px; }
+            .logo-main { width: 60px; margin-bottom: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="main-content">
-        <div class="container">
-            <img src="./../public/logo.png" alt="Infounder Logo" class="logo">
-            <h1>COMING SOON</h1>
-            <p>your digital visibility partner</p>
-        </div>
+    <div class="side-strip strip-left"></div>
+    <div class="side-strip strip-right"></div>
+
+    <div class="content-container">
+        <main>
+            <img src="./../public/logo.png" alt="Infounder Logo" class="logo-main">
+            
+            <h1 class="hero-headline">New Startup <br><span>Journey Ahead.</span></h1>
+            
+            <p class="sub-statement">
+                We’ve moved onto a new startup journey and we’ll be back soon.
+            </p>
+            
+            <a href="mailto:contact@infounder.ma" class="btn-cta">Check it Out</a>
+        </main>
+
+        <footer>
+            <p class="label">Partner Brand</p>
+            <img src="./../public/frensh-tech.png" alt="French Tech" class="partner-img">
+        </footer>
     </div>
 
-    <footer>
-        <a href="mailto:contact@infounder.ma" class="contact-link">
-            <i class="fas fa-envelope"></i>
-            contact@infounder.ma
-        </a>
-        
-        <div  class="contact-link">
-            <i class="fas fa-phone"></i>
-            +212 5 25 07 40 37
-        </div>
-
-        <a href="https://linkedin.com/company/infounder" target="_blank" class="contact-link">
-            <i class="fab fa-linkedin"></i>
-            LinkedIn
-        </a>
-    </footer>
-
 </body>
-
 </html>
