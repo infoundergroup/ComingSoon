@@ -5,126 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INFOUNDER</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --brand-navy: #1b2e5a; 
-            --brand-gold: #d7c690; 
-            --white: #ffffff;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background-color: var(--brand-navy);
-            color: var(--white);
-            font-family: 'Inter', sans-serif;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .side-strip {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 60px; 
-            z-index: 1;
-            background-image: url('../public/part.png'); 
-            background-repeat: repeat-y;
-            background-size: contain;
-            animation: slidePattern 20s linear infinite;
-        }
-
-        .strip-left { left: 0; }
-        .strip-right { 
-            right: 0; 
-            animation-direction: reverse; 
-        }
-
-        @keyframes slidePattern {
-            from { background-position: 0 0; }
-            to { background-position: 0 500px; }
-        }
-
-        .content-container {
-            position: relative;
-            z-index: 10;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            padding: 0 100px; 
-        }
-
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .logo-main { 
-            width: 80px;
-            height: auto; 
-            margin-bottom: 30px;
-        }
-
-        .hero-headline {
-            font-size: clamp(2rem, 6vw, 4rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero-headline span { color: var(--brand-gold); }
-
-        .sub-statement {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.7);
-            max-width: 600px;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
-        .btn-cta {
-            background-color: var(--brand-gold);
-            color: var(--brand-navy);
-            padding: 18px 40px;
-            border-radius: 4px;
-            font-weight: 800;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.3s;
-        }
-
-        .btn-cta:hover {
-            background-color: var(--white);
-            transform: translateY(-2px);
-        }
-
-        footer {
-            padding: 40px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .label { font-size: 0.7rem; letter-spacing: 3px; color: var(--brand-gold); opacity: 0.6; }
-        .partner-img { height: 120px; width: auto; }
-
-        @media (max-width: 768px) {
-            .side-strip { width: 40px; }
-            .content-container { padding: 0 50px; }
-            .logo-main { width: 60px; margin-bottom: 20px; }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -146,7 +29,9 @@
 
         <footer>
             <p class="label">Partner Brand</p>
-            <img src="./../public/frensh-tech.png" alt="French Tech" class="partner-img">
+            <a href="https://lafrenchtech.ma/" target="_blank" class="partner-link">
+                <img src="./../public/frensh-tech.png" alt="French Tech" class="partner-img">
+            </a>
         </footer>
     </div>
 
