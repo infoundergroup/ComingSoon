@@ -1,6 +1,6 @@
 :root {
     --brand-navy: #25396d; 
-    --brand-gold: #bda666; 
+    --brand-gold: #d7c691; 
     --white: #ffffff;
     --h1-size: 24px;
     --h1-lh: 36px;
@@ -35,7 +35,6 @@ body {
     background-repeat: repeat-y;
     background-size: contain;
     animation: slidePattern 20s linear infinite;
-    opacity: 0.8;
 }
 
 .strip-left { left: 0; }
@@ -94,28 +93,43 @@ main {
     font-size: var(--body-reg-size);
     line-height: var(--body-reg-lh);
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255);
     max-width: 550px;
     margin-bottom: 40px;
 }
 
 .btn-cta {
-    background-color: var(--brand-gold);
-    color: var(--brand-navy);
-    padding: 12px 32px;
+    background-color: transparent;
+    color: var(--brand-gold);
+    border: 2px solid var(--brand-gold);
+    
+    padding: 14px 40px;
     font-size: var(--button-size);
     line-height: var(--button-lh);
-    font-weight: 700;
-    border-radius: 4px;
+    font-weight: 600;
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: 0.3s;
+    letter-spacing: 2px;
+    
+    border-radius: 2px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
 .btn-cta:hover {
-    background-color: var(--white);
-    transform: translateY(-2px);
+    color: var(--brand-navy);
+    background-color: var(--brand-gold);
+    border-color: var(--brand-gold);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(215, 198, 145, 0.3);
+}
+
+@keyframes buttonPulse {
+    0% { box-shadow: 0 0 0 0 rgba(215, 198, 145, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(215, 198, 145, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(215, 198, 145, 0); }
 }
 
 footer {
