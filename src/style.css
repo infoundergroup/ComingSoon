@@ -116,13 +116,8 @@ main {
     font-size: var(--button-size);
     line-height: var(--button-lh);
     font-weight: 700;
-    
-    /* THE FIX: Large radius creates the pill shape */
     border-radius: 80px; 
-    
-    /* Ensure the button stays centered and behaves as a block */
     display: inline-block; 
-    
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -132,7 +127,6 @@ main {
 .btn-cta:hover {
     background-color: var(--white);
     transform: translateY(-2px);
-    /* Adding a subtle shadow makes the hover feel more interactive */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 @keyframes buttonPulse {
