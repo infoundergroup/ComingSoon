@@ -17,7 +17,7 @@
 body {
     background-color: var(--brand-navy);
     color: var(--white);
-    font-family: 'Jost', sans-serif;
+    font-family: 'jost', sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -35,7 +35,7 @@ body {
     background-image: url('../public/part.svg'); 
     background-repeat: repeat-y;
     background-size: contain;
-    animation: slidePattern 20s linear infinite;
+    animation: slidepattern 20s linear infinite;
 }
 
 .strip-left { left: 0; }
@@ -44,7 +44,7 @@ body {
     animation-direction: reverse; 
 }
 
-@keyframes slidePattern {
+@keyframes slidepattern {
     from { background-position: 0 0; }
     to { background-position: 0 500px; }
 }
@@ -126,10 +126,10 @@ main {
 
 .btn-cta:hover {
     background-color: var(--white);
-    transform: translateY(-2px);
+    transform: translatey(-2px);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
-@keyframes buttonPulse {
+@keyframes buttonpulse {
     0% { box-shadow: 0 0 0 0 rgba(215, 198, 145, 0.4); }
     70% { box-shadow: 0 0 0 10px rgba(215, 198, 145, 0); }
     100% { box-shadow: 0 0 0 0 rgba(215, 198, 145, 0); }
