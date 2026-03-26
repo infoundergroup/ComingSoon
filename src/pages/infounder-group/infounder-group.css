@@ -153,10 +153,20 @@ body {
   z-index: 1;
 }
 
+.hero-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(26, 39, 68, 0.9) 0%, rgba(30, 46, 82, 0.7) 100%);
+  background: linear-gradient(135deg, rgba(26, 39, 68, 0.7) 0%, rgba(30, 46, 82, 0.6) 100%);
   z-index: 0;
 }
 
@@ -575,11 +585,11 @@ body {
   height: 1px;
   background: var(--gold-muted);
 }
-/* ── FOOTER ── */
+
 .footer {
   padding: 80px 56px 32px;
   background: var(--navy-dark);
-  border-top: 1px solid rgba(201,174,114,0.1);
+  border-top: 1px solid rgba(201, 174, 114, 0.1);
   position: relative;
   overflow: hidden;
 }
@@ -587,10 +597,12 @@ body {
 .footer::before {
   content: '';
   position: absolute;
-  top: 0; left: 50%;
+  top: 0;
+  left: 50%;
   transform: translateX(-50%);
-  width: 100vw; height: 1px;
-  background: radial-gradient(circle, rgba(201,174,114,0.3) 0%, transparent 60%);
+  width: 100vw;
+  height: 1px;
+  background: radial-gradient(circle, rgba(201, 174, 114, 0.3) 0%, transparent 60%);
 }
 
 .footer-main {
@@ -627,8 +639,9 @@ body {
 }
 
 .social-link {
-  width: 36px; height: 36px;
-  border: 1px solid rgba(201,174,114,0.15);
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(201, 174, 114, 0.15);
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -681,7 +694,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding-top: 32px;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer-copy {
@@ -811,10 +824,12 @@ body {
     flex-direction: column;
     gap: 40px;
   }
+
   .footer-links-grid {
     flex-wrap: wrap;
     gap: 40px;
   }
+
   .footer {
     padding: 60px 32px 32px;
   }
@@ -874,10 +889,12 @@ body {
   .footer {
     padding: 40px 20px 24px;
   }
+
   .footer-links-grid {
     flex-direction: column;
     gap: 32px;
   }
+
   .footer-bottom {
     flex-direction: column;
     gap: 16px;
