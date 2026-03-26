@@ -4,16 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INFOUNDER</title>
-    <link rel="icon" type="image/png" href="assets/infounder-logo.png">
-    <meta name="description" content="Marrakech-based digital agency scaling startups, e-commerce, and real estate via Tech Architecture, Shopify, and Growth Strategy. Built for global execution.">
-    <link rel="canonical" href=""https://www.infoundergroup.com/">
-
-    <meta property="og:title" content="Infounder">
-    <meta property="og:description" content="We build, scale and optimize digital ecosystems for startups and e-commerce. Based in Marrakech. Built for global markets.">
-    <meta property="og:image" content="https://www.infoundergroup.com/assets/infounder-logo.png"> <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://x.com/Infoundergroup/with_replies">
-    <meta property="twitter:description" content="Not just another digital agency. We build properly. Based in Marrakech, built for global markets.">
-
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <meta name="description" content="Marrakech-based digital agency scaling startups, e-commerce, and real estate.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap" rel="stylesheet">
@@ -30,12 +22,33 @@
           <img src="assets/infounder-logo.png" alt="Infounder Logo" class="logo-main">
         </a>
         
-        <div class="hero-content">
+        <div class="hero-content" id="heroMain">
             <h1 class="hero-headline">New Startup <br><span>Journey Ahead.</span></h1>
             <p class="sub-statement">
                 We’ve moved onto a new startup journey and we’ll be back soon.
             </p>
-            <a href="mailto:contact@infounder.ma" class="btn-cta">Check it Out</a>
+            <a href="#" class="btn-cta" id="triggerReveal">Check it Out</a>
+        </div>
+
+        <div class="reveal-section" id="revealSection">
+            <div class="reveal-container">
+                <span class="reveal-line">We are not just another digital agency.</span>
+                <span class="reveal-line">We build, scale and optimize digital ecosystems.</span>
+                <span class="reveal-line highlight">Startups • E-commerce • Real Estate • Hospitality</span>
+                
+                <div class="reveal-line divider"></div>
+                
+                <span class="reveal-line">From Tech Architecture to Paid Acquisition.</span>
+                <span class="reveal-line">Based in Marrakech. Built for global markets.</span>
+                
+                <div class="reveal-line contact-grid">
+                    <a href="mailto:contact@infounder.ma" class="contact-item">contact@infounder.ma</a>
+                    <span class="contact-item">+212 661 691 118</span>
+                    <a href="https://www.linkedin.com/company/infounder/" target="_blank" class="contact-item">LinkedIn</a>
+                </div>
+                
+                <a href="#" class="btn-back" id="btnBack">Back</a>
+            </div>
         </div>
 
         <footer>
@@ -47,58 +60,31 @@
       </main>
     </div>
 
-    <!-- modal / pop up -->
-    <div id="contactModal" class="modal-overlay">
-    <div class="modal-content">
-        <button class="close-modal" aria-label="Close modal">&times;</button>
-        
-        <div class="reveal-container">
-            <span class="reveal-line">We are not just another digital agency.</span>
-            <span class="reveal-line">We build, scale and optimize digital ecosystems.</span>
-            <span class="reveal-line highlight">Startups • E-commerce • Real Estate • Hospitality</span>
+    <script>
+        const trigger = document.getElementById('triggerReveal');
+        const backBtn = document.getElementById('btnBack');
+        const hero = document.getElementById('heroMain');
+        const revealSection = document.getElementById('revealSection');
+
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            hero.classList.add('fade-out');
             
-            <div class="reveal-line divider"></div>
+            setTimeout(() => {
+                hero.style.display = 'none';
+                revealSection.classList.add('active');
+            }, 500);
+        });
+
+        backBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            revealSection.classList.remove('active');
             
-            <span class="reveal-line">From Tech Architecture to Paid Acquisition.</span>
-            <span class="reveal-line">Based in Marrakech. Built for global markets.</span>
-            
-            
-            <div class="reveal-line modal-contact-info">
-                <a href="mailto:contact@infounder.ma" class="contact-item">
-                    <span class="icon">✉</span> contact@infounder.ma
-                </a>
-                <a class="contact-item">
-                    <span class="icon">✆</span> +212 661 691 118
-                </a>
-                <a href="https://www.linkedin.com/company/infounder/" target="_blank" class="contact-item">
-                    <span class="icon">Linkedln</span>
-                </a>
-            </div>
-
-        </div>
-    </div>
-  </div>
-  </body>
-  <script>
-    const ctaBtn = document.querySelector('.btn-cta');
-    const modal = document.getElementById('contactModal');
-    const closeBtn = document.querySelector('.close-modal');
-
-    ctaBtn.addEventListener('click', (e) => {
-        e.preventDefault(); 
-        modal.classList.add('active');
-    });
-
-    closeBtn.addEventListener('click', () => {
-        modal.classList.remove('active');
-    });
-
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.remove('active');
-        }
-    });
-
-  </script>
+            setTimeout(() => {
+                hero.style.display = 'flex';
+                hero.classList.remove('fade-out');
+            }, 600);
+        });
+    </script>
+</body>
 </html>
-
