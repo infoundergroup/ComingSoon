@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INFOUNDER GROUP - Innovation & Global Excellence</title>
+  <link rel="stylesheet" href="../../assets/styles/variables.css">
+  <link rel="stylesheet" href="../../assets/styles/utilities.css">
+  <link rel="stylesheet" href="../../assets/styles/global.css">
+  <link rel="stylesheet" href="../../components/header/header.css">
+  <link rel="stylesheet" href="../../components/footer/footer.css">
+  <link rel="stylesheet" href="./infounder-group.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__container">
+      <a href="#" class="header__logo" aria-label="INFOUNDER GROUP">
+        <img src="../../../public/logo.png" alt="INFOUNDER GROUP Logo" class="header__logo-img">
+        INFOUNDER
+      </a>
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li><a href="#vision" class="header__nav-link">Vision</a></li>
+          <li><a href="#about" class="header__nav-link">About</a></li>
+          <li><a href="#contact" class="header__nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero__content">
+      <h1 class="hero__title">INFOUNDER GROUP</h1>
+      <p class="hero__subtitle">Innovating Tomorrow, Today</p>
+      <p class="hero__description">We empower businesses with cutting-edge solutions for the global market.</p>
+      <a href="#contact" class="button button--gold button--large">Get In Touch</a>
+    </div>
+    <div class="hero__visual">
+      <div class="hero__shape"></div>
+    </div>
+  </section>
+
+  <section id="vision" class="vision">
+    <div class="container">
+      <h2 class="vision__title">Our Vision</h2>
+      <div class="vision__grid">
+        <div class="vision__card">
+          <h3 class="vision__card-title">Innovation</h3>
+          <p class="vision__card-text">Pushing boundaries with cutting-edge technology and creative solutions.</p>
+        </div>
+        <div class="vision__card">
+          <h3 class="vision__card-title">Global Reach</h3>
+          <p class="vision__card-text">Connecting businesses across continents with seamless solutions.</p>
+        </div>
+        <div class="vision__card">
+          <h3 class="vision__card-title">Excellence</h3>
+          <p class="vision__card-text">Delivering premium quality with attention to every detail.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="about__title">About Us</h2>
+      <div class="about__content">
+        <p class="about__text">
+          INFOUNDER GROUP is a leading innovator in digital solutions, dedicated to transforming businesses through technology and strategic partnerships. Our team of experts brings years of experience across industries, delivering results that matter.
+        </p>
+        <p class="about__text">
+          We believe in the power of collaboration, innovation, and excellence. Our mission is to provide world-class solutions that empower organizations to achieve their goals and exceed expectations in an ever-changing global marketplace.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="cta">
+    <div class="cta__content">
+      <h2 class="cta__title">Ready to Transform Your Business?</h2>
+      <p class="cta__subtitle">Let's build something incredible together.</p>
+      <a href="mailto:info@infounder.com" class="button button--gold button--large">Contact Us Now</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__section">
+        <a href="#" class="footer__logo" aria-label="INFOUNDER GROUP">
+          <img src="../../../public/logo.png" alt="INFOUNDER GROUP Logo" class="footer__logo-img">
+          INFOUNDER
+        </a>
+        <p class="footer__description">Building innovative solutions for global markets.</p>
+      </div>
+      <div class="footer__section">
+        <h4 class="footer__title">Navigation</h4>
+        <ul class="footer__list">
+          <li><a href="#vision" class="footer__link">Vision</a></li>
+          <li><a href="#about" class="footer__link">About</a></li>
+          <li><a href="#contact" class="footer__link">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__section">
+        <h4 class="footer__title">Contact</h4>
+        <p class="footer__text">
+          <a href="mailto:info@infounder.com" class="footer__link">info@infounder.com</a>
+        </p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 INFOUNDER GROUP. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+      
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  </script>
+</body>
+</html>
