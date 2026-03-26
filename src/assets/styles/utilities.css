@@ -28,11 +28,12 @@ button {
 }
 
 .button {
-  padding: var(--space-sm) var(--space-lg);
+  padding: 12px 20px;
   border-radius: var(--radius-md);
   font-weight: var(--font-weight-semibold);
   transition: var(--transition-base);
   display: inline-block;
+  font-size: var(--font-size-base);
 }
 
 .button--primary {
@@ -69,8 +70,8 @@ button {
 }
 
 .button--large {
-  padding: var(--space-md) var(--space-xl);
-  font-size: var(--font-size-lg);
+  padding: 13px 32px;
+  font-size: var(--font-size-base);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -114,3 +115,16 @@ h4 {
 .py-lg { padding: var(--space-lg) 0; }
 .py-xl { padding: var(--space-xl) 0; }
 .py-xxl { padding: var(--space-xxl) 0; }
+
+/* Text Color Utilities */
+.text-gold {
+  color: var(--color-gold);
+}
+
+.text-navy {
+  color: var(--color-navy);
+}
+
+.text-white {
+  color: var(--color-white);
+}
