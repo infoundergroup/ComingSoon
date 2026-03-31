@@ -1,0 +1,123 @@
+@import '../assets/styles/variables.css';
+
+.header {
+  background-color: var(--color-navy);
+  border-bottom: 3px solid var(--color-gold);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.header__container {
+  width: 100%;
+  padding: 0 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.header__logo {
+  text-decoration: none;
+  transition: var(--transition-base);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-gold);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  letter-spacing: 1px;
+}
+
+.header__logo-img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  transition: var(--transition-base);
+}
+
+.header__logo:hover .header__logo-img,
+.header__logo:hover {
+  opacity: 0.8;
+}
+
+.header__nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-white);
+  border-radius: 50px;
+  padding: 8px 20px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.header__nav-list {
+  display: flex;
+  list-style: none;
+  gap: 16px;
+  align-items: center;
+}
+
+.header__nav-list li {
+  position: relative;
+}
+
+.header__nav-link {
+  color: var(--color-navy);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  position: relative;
+  transition: var(--transition-base);
+  padding: 6px 12px;
+  border-radius: 25px;
+  display: inline-block;
+}
+
+.header__nav-link:hover {
+  background-color: var(--color-gold);
+  color: var(--color-navy);
+}
+
+.header__nav-link::after {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header__container {
+    height: 70px;
+    gap: var(--space-md);
+  }
+
+  .header__logo-text {
+    font-size: var(--font-size-lg);
+  }
+
+  .header__nav-list {
+    gap: var(--space-md);
+  }
+
+  .header__nav-link {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .header__container {
+    height: 60px;
+    padding: 0 var(--space-md);
+  }
+
+  .header__logo-text {
+    font-size: var(--font-size-base);
+  }
+
+  .header__nav-list {
+    gap: var(--space-sm);
+  }
+
+  .header__nav-link {
+    font-size: var(--font-size-xs);
+  }
+}
