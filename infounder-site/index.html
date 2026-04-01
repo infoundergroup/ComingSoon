@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INFOUNDER</title>
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <meta name="description" content="Marrakech-based digital agency scaling startups, e-commerce, and real estate.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="popup.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>INFOUNDER GROUP | Technology, Growth & Digital Systems for Startups, Businesses and Investors</title>
+  <meta name="description" content="INFOUNDER GROUP helps startups, businesses, and investors build, scale, and optimize digital systems through software development, CTO as a Service, growth strategy, and technical execution.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.infoundergroup.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="INFOUNDER GROUP | Technology, Growth & Digital Systems">
+  <meta property="og:description" content="We help startups, businesses, and investors build, scale, and optimize digital systems.">
+  <meta property="og:url" content="https://www.infoundergroup.com/">
+  <meta property="og:image" content="assets/og-cover.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="INFOUNDER GROUP | Technology, Growth & Digital Systems">
+  <meta name="twitter:description" content="We help startups, businesses, and investors build, scale, and optimize digital systems.">
+  <meta name="twitter:image" content="assets/og-cover.png">
+
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="popup.css">
 </head>
 <body>
     <div class="side-strip strip-left"></div>
@@ -39,93 +54,59 @@
         </main>
     </div>
 
-    <div class="reveal-overlay" id="revealOverlay">
-        <div class="reveal-container" id="revealStage"></div>
+<div class="reveal-overlay" id="revealOverlay">
+    <div class="reveal-container">
+        <span class="reveal-line">INFOUNDER GROUP is a technology and marketing innovation agency.</span>
+        <span class="reveal-line">We build, grow, and position digital products and ambitious brands.</span>
+        <span class="reveal-line highlight">Startups • E-commerce • Real Estate • Hospitality</span>
+
+        <div class="reveal-line divider"></div>
+
+        <span class="reveal-line">From product strategy and tech architecture to SEO, content, and paid acquisition.</span>
+        <span class="reveal-line">Based in Marrakech. Built for global markets.</span>
+
+        <div class="reveal-line contact-grid">
+            <a href="mailto:contact@infoundergroup.com" class="contact-item">contact@infoundergroup.com</a>
+            <a href="tel:+18582566955" class="contact-item">+1 (858) 256-6955</a>
+        </div>
+
+        <div class="reveal-line social-links-line">
+            <a href="https://www.instagram.com/infoundergroup/" target="_blank" rel="noopener noreferrer" class="contact-item">Instagram</a>
+            <span class="social-separator">•</span>
+            <a href="https://www.linkedin.com/company/infounder/" target="_blank" rel="noopener noreferrer" class="contact-item">LinkedIn</a>
+        </div>
+
         <a href="#" class="btn-back" id="btnBack">Back</a>
     </div>
-
+</div>
     <script>
-        window.onload = function() {
-            const trigger = document.getElementById('triggerReveal');
-            const overlay = document.getElementById('revealOverlay');
-            const stage = document.getElementById('revealStage');
-            const backBtn = document.getElementById('btnBack');
+        const trigger = document.getElementById('triggerReveal');
+        const overlay = document.getElementById('revealOverlay');
+        const backBtn = document.getElementById('btnBack');
 
-            const sequence = [
-                { content: "INFOUNDER GROUP is a technology and marketing innovation agency.", type: "p1" },
-                { content: "We build, grow, and position digital products and ambitious brands.", type: "p1" },
-                { content: "Startups • E-commerce • Real Estate • Hospitality", type: "highlight" },
-                { content: "From product strategy and tech architecture to SEO, content, and paid acquisition.", type: "p1" },
-                { content: "Based in Marrakech. Built for global markets.", type: "p1" },
-                { content: "contacts", type: "contacts" } 
-            ];
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            overlay.style.display = 'flex';
+            // Slight timeout to allow the display:flex to register before adding active class for transition
+            setTimeout(() => {
+                overlay.classList.add('active');
+            }, 10);
+            document.body.style.overflow = 'hidden'; 
+        });
 
-            let activeTimeouts = [];
-
-            async function runCinematic() {
-                stage.innerHTML = ''; 
-                activeTimeouts.forEach(t => clearTimeout(t));
-                activeTimeouts = [];
-
-                const duration = 6000; 
-                const overlapDelay = 3500; 
-
-                for (let i = 0; i < sequence.length; i++) {
-                    const item = sequence[i];
-                    const line = document.createElement('div');
-                    
-                    if (item.type === "contacts") {
-                        line.className = "reveal-line contact-grid-wrapper animate-stay";
-                        line.innerHTML = `
-                            <div class="contact-grid">
-                                <a  class="contact-item">contact@infoundergroup.com</a>
-                                <a class="contact-item">+1 (858) 256-6955</a>
-                            </div>
-                            <div class="social-links-line">
-                                <a href="https://www.linkedin.com/company/infounder/" target="_blank" class="contact-item">LinkedIn</a>
-                            </div>
-                        `;
-                        await new Promise(resolve => setTimeout(resolve, 2500));
-                        stage.appendChild(line);
-                        return; 
-                    }
-
-                    line.className = `reveal-line animate-fade-out ${item.type}`;
-                    line.innerText = item.content;
-                    stage.appendChild(line);
-
-                    setTimeout(() => {
-                        if (line.parentNode) line.remove();
-                    }, duration);
-
-                    await new Promise(resolve => {
-                        const timeout = setTimeout(resolve, overlapDelay);
-                        activeTimeouts.push(timeout);
-                    });
-                }
-            }
-
-            trigger.onclick = function(e) {
-                e.preventDefault();
-                overlay.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-                setTimeout(() => {
-                    overlay.classList.add('active');
-                    runCinematic();
-                }, 50);
-            };
-
-            backBtn.onclick = function(e) {
-                e.preventDefault();
-                overlay.classList.remove('active');
-                activeTimeouts.forEach(t => clearTimeout(t));
-                setTimeout(() => {
-                    overlay.style.display = 'none';
-                    stage.innerHTML = '';
-                    document.body.style.overflow = 'auto';
-                }, 600);
-            };
+        const hideOverlay = (e) => {
+            if(e) e.preventDefault();
+            overlay.classList.remove('active');
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 600); // Matches the CSS transition time
+            document.body.style.overflow = 'auto';
         };
+
+        backBtn.addEventListener('click', hideOverlay);
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) hideOverlay();
+        });
     </script>
 </body>
 </html>
