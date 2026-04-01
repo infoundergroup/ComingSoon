@@ -40,55 +40,92 @@
     </div>
 
     <div class="reveal-overlay" id="revealOverlay">
-        <div class="reveal-container">
-            <span class="reveal-line">We are not just another digital agency.</span>
-            <span class="reveal-line">We build, scale and optimize digital ecosystems.</span>
-            <span class="reveal-line highlight">Startups • E-commerce • Real Estate • Hospitality</span>
-            
-            <div class="reveal-line divider"></div>
-            
-            <span class="reveal-line">From Tech Architecture to Paid Acquisition.</span>
-            <span class="reveal-line">Based in Marrakech. Built for global markets.</span>
-
-            
-            <div class="reveal-line contact-grid">
-                <a href="mailto:contact@infounder.ma" class="contact-item">contact@infounder.ma</a>
-                <span class="contact-item">+212 661 691 118</span>
-                <a href="https://www.linkedin.com/company/infounder/" target="_blank" class="contact-item">LinkedIn</a>
-            </div>
-            
-            <a href="#" class="btn-back" id="btnBack">Back</a>
-        </div>
+        <div class="reveal-container" id="revealStage"></div>
+        <a href="#" class="btn-back" id="btnBack">Back</a>
     </div>
 
     <script>
-        const trigger = document.getElementById('triggerReveal');
-        const overlay = document.getElementById('revealOverlay');
-        const backBtn = document.getElementById('btnBack');
+        window.onload = function() {
+            const trigger = document.getElementById('triggerReveal');
+            const overlay = document.getElementById('revealOverlay');
+            const stage = document.getElementById('revealStage');
+            const backBtn = document.getElementById('btnBack');
 
-        trigger.addEventListener('click', (e) => {
-            e.preventDefault();
-            overlay.style.display = 'flex';
-            // Slight timeout to allow the display:flex to register before adding active class for transition
-            setTimeout(() => {
-                overlay.classList.add('active');
-            }, 10);
-            document.body.style.overflow = 'hidden'; 
-        });
+            const sequence = [
+                { content: "INFOUNDER GROUP is a technology and marketing innovation agency.", type: "p1" },
+                { content: "We build, grow, and position digital products and ambitious brands.", type: "p1" },
+                { content: "Startups • E-commerce • Real Estate • Hospitality", type: "highlight" },
+                { content: "From product strategy and tech architecture to SEO, content, and paid acquisition.", type: "p1" },
+                { content: "Based in Marrakech. Built for global markets.", type: "p1" },
+                { content: "contacts", type: "contacts" } 
+            ];
 
-        const hideOverlay = (e) => {
-            if(e) e.preventDefault();
-            overlay.classList.remove('active');
-            setTimeout(() => {
-                overlay.style.display = 'none';
-            }, 600); // Matches the CSS transition time
-            document.body.style.overflow = 'auto';
+            let activeTimeouts = [];
+
+            async function runCinematic() {
+                stage.innerHTML = ''; 
+                activeTimeouts.forEach(t => clearTimeout(t));
+                activeTimeouts = [];
+
+                const duration = 6000; 
+                const overlapDelay = 3500; 
+
+                for (let i = 0; i < sequence.length; i++) {
+                    const item = sequence[i];
+                    const line = document.createElement('div');
+                    
+                    if (item.type === "contacts") {
+                        line.className = "reveal-line contact-grid-wrapper animate-stay";
+                        line.innerHTML = `
+                            <div class="contact-grid">
+                                <a  class="contact-item">contact@infoundergroup.com</a>
+                                <a class="contact-item">+1 (858) 256-6955</a>
+                            </div>
+                            <div class="social-links-line">
+                                <a href="https://www.linkedin.com/company/infounder/" target="_blank" class="contact-item">LinkedIn</a>
+                            </div>
+                        `;
+                        await new Promise(resolve => setTimeout(resolve, 2500));
+                        stage.appendChild(line);
+                        return; 
+                    }
+
+                    line.className = `reveal-line animate-fade-out ${item.type}`;
+                    line.innerText = item.content;
+                    stage.appendChild(line);
+
+                    setTimeout(() => {
+                        if (line.parentNode) line.remove();
+                    }, duration);
+
+                    await new Promise(resolve => {
+                        const timeout = setTimeout(resolve, overlapDelay);
+                        activeTimeouts.push(timeout);
+                    });
+                }
+            }
+
+            trigger.onclick = function(e) {
+                e.preventDefault();
+                overlay.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                setTimeout(() => {
+                    overlay.classList.add('active');
+                    runCinematic();
+                }, 50);
+            };
+
+            backBtn.onclick = function(e) {
+                e.preventDefault();
+                overlay.classList.remove('active');
+                activeTimeouts.forEach(t => clearTimeout(t));
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                    stage.innerHTML = '';
+                    document.body.style.overflow = 'auto';
+                }, 600);
+            };
         };
-
-        backBtn.addEventListener('click', hideOverlay);
-        overlay.addEventListener('click', (e) => {
-            if (e.target === overlay) hideOverlay();
-        });
     </script>
 </body>
 </html>
