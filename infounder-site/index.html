@@ -13,7 +13,7 @@
   <meta property="og:title" content="INFOUNDER GROUP | Technology, Growth & Digital Systems">
   <meta property="og:description" content="We help startups, businesses, and investors build, scale, and optimize digital systems.">
   <meta property="og:url" content="https://www.infoundergroup.com/">
-  <meta property="og:image" href="assets/infounder-logo.png">
+  <meta property="og:image" content="assets/og-cover.png">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="INFOUNDER GROUP | Technology, Growth & Digital Systems">
@@ -38,7 +38,7 @@
             </a>
             
             <div class="hero-content" id="heroMain">
-                <h1 class="hero-headline">New Startup <br><span>Journey Aheadd.</span></h1>
+                <h1 class="hero-headline">New Startup <br><span>Journey Ahead.</span></h1>
                 <p class="sub-statement">
                     We’ve moved onto a new startup journey and we’ll be back soon.
                 </p>
@@ -87,7 +87,6 @@
         trigger.addEventListener('click', (e) => {
             e.preventDefault();
             overlay.style.display = 'flex';
-            // Slight timeout to allow the display:flex to register before adding active class for transition
             setTimeout(() => {
                 overlay.classList.add('active');
             }, 10);
